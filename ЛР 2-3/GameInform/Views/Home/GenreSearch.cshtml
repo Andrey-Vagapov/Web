@@ -1,0 +1,25 @@
+﻿@model IEnumerable<GameInform.Models.Game>
+
+<div id="searchresults">
+
+    <h3>ВСе игры жанра @Model.First().Genre</h3>
+    <table>
+        <tr>
+            <td><p><b></b></p></td>
+            <td><p><b>Название</b></p></td>
+            <td><p><b>Жанр</b></p></td>
+            <td><p><b>Рейтинг</b></p></td>
+            <td></td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><p><img src=@item.Picture width="75" height="150" alt=""></p></td>
+                <td><p><b>@item.Name</b></p></td>
+                <td><p><b>@item.Genre</b></p></td>
+                <td><p><b>@item.Rating</b></p></td>
+            </tr>
+        }
+    </table>
+
+</div>

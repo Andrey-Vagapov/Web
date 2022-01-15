@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Обзоры</title>
+</head>
+<body>
+    <div>
+        <h3>Обзоры на @ViewBag.Name</h3>
+        <table>
+            <tr>
+                <td><p>Имя пользователя</p></td>
+                <td><p>Обзор</p></td>
+                <td></td>
+            </tr>
+            @foreach (var b in ViewBag.Reviews)
+            {
+                <tr>
+                    <td><p>@b.Name</p></td>
+                    <td><p>@b.Text</p></td>
+                    <td><p><a href="/Home/DeleteReview/@b.ReviewId">Удалить</a></p></td>
+                </tr>
+            }
+        </table>
+        <a href="/Home/AddReview/@ViewBag.Id">Добавить обзор</a>
+    </div>
+</body>
+</html>

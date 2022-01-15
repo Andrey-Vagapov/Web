@@ -1,0 +1,37 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Добавление обзора</title>
+</head>
+<body>
+    <div>
+        <h3>Добавление нового обзора</h3>
+        <form method="post" action="">
+            <input type="hidden" value="@ViewBag.GameId" name="GameId" />
+            <table class="table_dark">
+                <tr>
+                    <td><p>Имя: </p></td>
+                    <td><input type="text" name="Name" /> </td>
+                </tr>
+                <tr>
+                    <td><p>Email: </p></td>
+                    <td><input type="text" name="Email" /> </td>
+                </tr>
+                <tr>
+                    <td><p>Текст обзора: </p></td>
+                    <td>
+                        <input type="text" name="Text" />
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" value="Отправить" />
+        </form>
+    </div>
+</body>
+</html>

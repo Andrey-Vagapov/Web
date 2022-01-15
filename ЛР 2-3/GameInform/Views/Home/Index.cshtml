@@ -1,0 +1,50 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GameInform</title>
+</head>
+<body>
+    <div>
+        <h3>Поиск по жанру</h3>
+        <div>
+            @using (Ajax.BeginForm("GenreSearch", new AjaxOptions { UpdateTargetId = "results" }))
+            {
+                <input type="text" name="genre" />
+                <input type="submit" value="Поиск" />
+            }
+            <div id="results"></div>
+        </div>
+        <h3>Каталог игр</h3>
+        <table>
+            <tr>
+                <td><p></p></td>
+                <td><p><b>Название</b></p></td>
+                <td><p><b>Жанр</b></p></td>
+                <td><p><b>Рейтинг</b></p></td>
+                <td><p><b>Описание</b></p></td>
+                <td></td>
+                <td></td>
+            </tr>
+            @foreach (var b in ViewBag.Games)
+            {
+        <tr>
+            <td><p><img src=@b.Picture width="130" height="230" alt=""></p></td>
+            <td><p><b>@b.Name</b></p></td>
+            <td><p><b>@b.Genre</b></p></td>
+            <td><p><b>@b.Rating</b></p></td>
+            <td width="900"><p>@b.Description</p></td>
+            <td><p><a href="/Home/Review/@b.Id">Обзоры</a></p></td>
+            <td><p><a href="/Home/DeleteGame/@b.Id">Удалить</a></p></td>
+        </tr>
+            }
+            <td><p><a href="/Home/AddGame">Добавить игру</a></p></td>
+        </table>
+    </div>
+</body>
+</html>
